@@ -2,12 +2,12 @@
 
 import socket
 
-HOST = '128.105.145.88'  # The server's hostname or IP address
+HOST = '128.105.145.89'  # The server's hostname or IP address
 PORT = 65432        # The port used by the server
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     s.sendall(b'Start DL traffic')
-    data = s.recv(1024)
+    #data = s.recv(1024)
 
-print('Received', repr(data))
+#print('Received', repr(data))
