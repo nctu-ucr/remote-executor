@@ -2,7 +2,7 @@
 
 import socket, os
 
-HOST = '128.105.145.89'  # Standard loopback interface address (localhost)
+HOST = '10.10.2.45'  # Standard loopback interface address (localhost)
 PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -11,9 +11,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     conn, addr = s.accept()
     with conn:
         print('Connected by', addr)
-        while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            os.system("../MoonGen/build/MoonGen ../MoonGen/examples/pcap/replay-pcap.lua 0 ../test-packet/gtp_icmp_echo_request_256_loop.pcap -l")
-            conn.sendall(data)
+        os.system("ping -c 5 60.60.0.1")
